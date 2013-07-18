@@ -1,4 +1,8 @@
 CrimeApp::Application.routes.draw do
+  resources :crimes, :listings, :neighborhoods
+
+   root :to => 'listings#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

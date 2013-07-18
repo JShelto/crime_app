@@ -1,0 +1,18 @@
+
+<section>
+	<div class="current"><h2>Current Listings</h2></div>
+
+
+	<%= @listings.each do |listing| %>
+		<div>
+		 <a href=<%= listing[:link] %>  <br>
+		 <%= listing[:title] %> </a>
+		 <%= listing[:info] %>
+		 Crime: <%= listing[:crime_percentage] %>%<br>
+		<hr>
+		<div>
+	<% end %>
+
+
+
+</section>
