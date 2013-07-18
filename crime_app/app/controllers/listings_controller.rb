@@ -2,11 +2,11 @@ class ListingsController < ApplicationController
 
 	def index
 		@listings =[]
-		# url = open("http://sfbay.craigslist.org/sfc/apa/")
-		url = open("craigslist.html")
+		url = open("http://sfbay.craigslist.org/sfc/apa/")
+		# url = open("craigslist.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
-			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
 			l[:title] = x.css('a')[1].text()
@@ -14,21 +14,27 @@ class ListingsController < ApplicationController
 			hood = Neighborhood.find_by_name( l[:c_hood].to_s )
 			l[:info] = x.css('.pnr').text
 			l[:crime_percentage] = hood.crime_percentage() unless hood.nil? 
+
+			case l[:crime_percentage]
+				when (20...100)
+					l[:color] = '#ff6666'
+				when (15..20)
+					l[:color] = '#ffab66'
+				when (10..15)
+					l[:color] = '#ffff66'
+				when (5..10)
+					l[:color] = '#9c99ff'
+				when (0..5)
+					l[:color] = '#64ff5c'
+				else
+					l[:color] = '000000'
+			end
 			@listings <<  l
 		end
-		# @hood = Neighborhood.find_by_name 'bayview'
-		# @percents = @hood.crime_percentage()
 
+		@date = ""
+		url_data.css(".ban").each do |x|
+		@date += x.to_html
+		end
 	end
-
-	# def show
-	# 	@next = ""
-	# 	url = open("index.html")
-	# 	url_data = Nokogiri::HTML(url)
-	# 	url_data.css(".row").each do |x|
-	# 	@next += x.to_html
-	# 	end
-	# end
-	
-
 end

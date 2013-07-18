@@ -1,14 +1,13 @@
-
 <section>
-	<div class="current"><h2>Current Listings</h2></div>
+	<div class="current"><h4>Current Listings</h4></div>
 
+	<div class ="date"><h4><%= raw @date %> </h4></div>
 
-	<%= @listings.each do |listing| %>
+	<% @listings.each do |listing| %>
 		<div>
-		 <a href=<%= listing[:link] %>  <br>
-		 <%= listing[:title] %> </a>
-		 <%= listing[:info] %>
-		 Crime: <%= listing[:crime_percentage] %>%<br>
+		 	<span style="background: <%= listing[:color] %>"><div class="linking"> <a href= <%= listing[:link] %> style="text-decoration: none;"  <br> <%= listing[:title] %> </a> </div> </span>
+			 <div class="infoing"><%= listing[:info] %> </div>
+		 	<div class="rating" style="background: <%= listing[:color] %>">Crime Rating: <%= listing[:crime_percentage] %>% </div>
 		<hr>
 		<div>
 	<% end %>

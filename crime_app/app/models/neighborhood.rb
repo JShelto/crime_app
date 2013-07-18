@@ -18,12 +18,11 @@ class Neighborhood < ActiveRecord::Base
 	end
 
 	def neighborhood_percentages
-		graph = []
+		hoods = []
 		percentages = self.crime_percentage
 		percentages.each do |x|
-			graph.push(x)
+			hoods.push(x)
 		end
-		graph
 	end
 
 

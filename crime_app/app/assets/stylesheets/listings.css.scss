@@ -2,11 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+	font-family:helvetica
+}
+
 .title {
 	text-align:center
 }
 
 .current {
+	background: #eeeeee;
+	color: #551a8b;
 	text-align:center
 }
 
@@ -14,14 +20,15 @@ footer {
 	text-align:center
 }
 
-.ban {
+span{
+	display: inline-block;
+	border-radius: 2px;
+}
+
+.rating {
+	float: right
+}
+
+.date {
 	text-align:center
-}
-
-.pl :hover {
-    background-color: rgba(153,153,153,1);
-}
-
-img {
-	float:left
 }
