@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 body{
 	font-family:helvetica
 }
@@ -22,13 +24,62 @@ footer {
 
 span{
 	display: inline-block;
-	border-radius: 2px;
+	border-radius: 5px;
+	padding: 1px 3px
+}
+
+a {
+    color: #000000;
+}
+
+a:hover {
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+a:active {
+	color:#ffffff;
 }
 
 .rating {
-	float: right
+ width: 50px; 
+ height: 50px; 
+ border-radius: 60px; 
+ float: right;
+ border: 2px grey;
+}
+
+p {
+ text-align: center;
+ font-weight: bold;
+ font-stretch: 5px;
+ padding: 3px
 }
 
 .date {
 	text-align:center
+}
+
+
+.container {
+	font-family:helvetica;
+	height :100px;
+	width: 125px;
+	float: right
+}
+ .describer {
+ 	background: #eeeeee;
+	color: #551a8b;
+}
+ .red{
+	background: #ff6666
+} .orange {
+	background: #ffff66
+} .yellow {
+	background: #ffab66
+} .blue {
+	background: #9c99ff
+} .green {
+	background: #64ff5c
 }
